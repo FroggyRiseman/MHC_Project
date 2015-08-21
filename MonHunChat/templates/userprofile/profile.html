@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ userProfile.user.username }}{% endblock %}
+
+{% block body_block %}
+
+    <div class="panel-heading">
+            <h2 class="panel-title">{{ userProfile.user.username }}</h2>
+    </div>
+    <div class="panel-body">
+        <h5 class="sub-title">Guild Card</h5>
+
+        {% if userProfile.rank == 'LR' %}
+            <label>Hunter Rank:</label> Low Rank<br />
+        {% elif userProfile.rank == 'HR' %}
+            <label>Hunter Rank:</label> High Rank<br />
+        {% elif userProfile.rank == 'GR' %}
+            <label>Hunter Rank:</label> G-Rank<br />
+        {% elif userProfile.rank == 'GRP' %}
+            <label>Hunter Rank:</label> G-Rank 100-998<br />
+        {% elif userProfile.rank == 'GM' %}
+            <label>Hunter Rank:</label> G-Rank 999<br />
+        {% else %}
+            <label>Hunter Rank:</label> Rank not selected.<br/>
+        {% endif %}
+
+        {% if userProfile.weapon == 'GS' %}
+            <label>Favorite Weapon:</label> Greatsword<br />
+        {% elif userProfile.weapon == 'LS' %}
+            <label>Favorite Weapon:</label> Longsword<br />
+        {% elif userProfile.weapon == 'SNS' %}
+            <label>Favorite Weapon:</label> Sword and Shield<br />
+        {% elif userProfile.weapon == 'DB' %}
+            <label>Favorite Weapon:</label> Dual Blades<br />
+        {% elif userProfile.weapon == 'HAM' %}
+            <label>Favorite Weapon:</label> Hammer<br />
+        {% elif userProfile.weapon == 'HH' %}
+            <label>Favorite Weapon:</label> Hunting Horn<br />
+        {% elif userProfile.weapon == 'LAN' %}
+            <label>Favorite Weapon:</label> Lance<br />
+        {% elif userProfile.weapon == 'GL' %}
+            <label>Favorite Weapon:</label> Gunlance<br />
+        {% elif userProfile.weapon == 'SA' %}
+            <label>Favorite Weapon:</label> Switch Axe<br />
+        {% elif userProfile.weapon == 'CA' %}
+            <label>Favorite Weapon:</label> Charge Axe<br />
+        {% elif userProfile.weapon == 'IG' %}
+            <label>Favorite Weapon:</label> Insect Glaive<br />
+        {% elif userProfile.weapon == 'TON' %}
+            <label>Favorite Weapon:</label> Tonfa<br />
+        {% elif userProfile.weapon == 'BOW' %}
+            <label>Favorite Weapon:</label> Bow<br />
+        {% elif userProfile.weapon == 'HBG' %}
+            <label>Favorite Weapon:</label> Heavy Bowgun<br />
+        {% elif userProfile.weapon == 'LBG' %}
+            <label>Favorite Weapon:</label> Light Bowgun<br />
+        {% else %}
+            <label>Favorite Weapon:</label> None<br />
+        {% endif %}
+
+        {% if userProfile.friend_code != '' %}
+            <label>Nintendo FC:</label> {{ userProfile.friend_code }}<br />
+        {% else %}
+            <label>Nintendo FC:</label> Can't afford a 3DS<br />
+        {% endif %}
+
+        {% if userProfile.nintendo_name != '' %}
+            <label>Nintendo Username:</label> {{ userProfile.nintendo_name }}<br />
+        {% endif %}
+
+        {% if userProfile.hunter_name != '' %}
+            <label>Hunter Username:</label> {{ userProfile.hunter_name }}<br />
+        {% endif %}
+
+        {% if userProfile.skype_name or userProfile.teamspeak_name != '' %}
+            <h5 class="sub-title">Other Chatting Services<h5>
+            {% if userProfile.skype_name != '' %}
+                <label>Skype Username:</label> {{ userProfile.skype_name }}<br/>
+            {% endif %}
+
+            {% if userProfile.teamspeak_name != '' %}
+                <label>TeamSpeak Username:</label> {{ userProfile.teamspeak_name }}<br />
+            {% endif %}
+        {% endif %}
+
+        <div class="text-right">
+            <label>Bio:</label> {{ userProfile.description }}<br />
+        </div>
+
+        {% if user.is_authenticated %}
+            {% if user.id == userProfile.user.id %}
+                <p class="text-right"><a href="{% url 'update_profile' %}">Update Profile</a>
+            {% endif %}
+        {% endif %}
+    </div>
+
+{% endblock %}

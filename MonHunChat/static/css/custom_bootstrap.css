@@ -1,0 +1,79 @@
+body {
+    background-image: url('../images/mhwallpaper2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
+.black-background {
+    background: #000000;
+}
+
+.navbar-brand {
+    padding-left: 15%;
+}
+
+.navbar-height {
+    height: 10%;
+}
+
+.navbar-text {
+    font-size: 120%;
+    padding-right: 10%;
+}
+
+.panel-margin {
+    margin-top: 3%;
+}
+
+.panel-title {
+    text-align: center;
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.sub-title {
+    text-align: left;
+    font-size: 130%;
+    font-weight: bold;
+}
+
+.btn-custom {
+    margin-bottom: 2%;
+    border: 1%;
+}
+
+.panel-background {
+    background-image: url('../images/mhbackground.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.custom-background {
+    background: #000000;
+    opacity: 0.8;
+    color: #FFFFFF;
+}
+
+.low-rank {
+    color: #FFFFFF;
+}
+
+.high-rank {
+    color: #FF6600;
+}
+
+.g-rank {
+    color: #FF0000;
+}
+
+.g-rank-plus {
+    color: #FF00FF;
+}
+
+.guild-master {
+    color: #00FFFF;
+}

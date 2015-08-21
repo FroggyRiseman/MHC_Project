@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Profile{% endblock %}
+
+{% block body_block %}
+
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+
+    <form class="form signin" role="form" method="post" action="/roster/send_update_profile/">
+        {% csrf_token %}
+
+        <div class="panel-heading">
+            <h2 class="panel-title">Update Your Profile</h2>
+        </div>
+
+        <div class="panel-body">
+            <label>Hunter Rank:</label> {{ form.rank }}<br />
+            <label>Favorite Weapon:</label> {{ form.weapon }}<br />
+            <label>Nintendo FC:</label> {{ form.friend_code }}<br />
+            <label>Nintendo Username:</label> {{ form.nintendo_name }}<br />
+            <label>Hunter Name:</label> {{ form.hunter_name }}<br />
+            <label>Skype Username:</label> {{ form.skype_name }}<br />
+            <label>TeamSpeak Username:</label> {{ form.teamspeak_name }}<br />
+
+            <label>
+                Bio:
+            </label><br />
+            {{ form.description }}
+            <br />        
+        </div>
+
+        <button class="btn btn-primary btn-custom navbar-inverse" type="sumbit">Save</button>
+    </form>
+
+{% endblock %}

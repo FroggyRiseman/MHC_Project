@@ -1,0 +1,39 @@
+{% load static swampdragon_tags %}
+<!DOCTYPE html>
+<html ng-app="ChatApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% verbatim %}
+<div ng-controller="ChatListCtrl">
+    <h3>{{ chatList.name }}</h3>
+    <pre>{{ chatList.description }}</pre>
+
+    <ul>
+        <li ng-repeat="item in chatItems">
+            {{ item.text }}
+            <button type="button" ng-click="itemDone(item)">
+                check
+            </button>
+            <span ng-show="item.done">done!</span>
+        </li>
+    </ul>
+</div>
+{% endverbatim %}
+
+<!-- AngularJS -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+
+{% swampdragon_settings %}
+<script type="text/javascript" src="{% static 'swampdragon/js/dist/swampdragon.min.js' %}"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}swampdragon/js/dist/datamapper.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}swampdragon/js/angular/services.js"></script>
+
+<!-- Chat app -->
+<script type="text/javascript" src="{{ STATIC_URL }}app.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}controllers.js"></script>
+
+</body>
+</html>
